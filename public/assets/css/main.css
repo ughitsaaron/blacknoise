@@ -1,0 +1,56 @@
+html,
+body {
+  background-color: #131313;
+}
+
+footer {
+  padding-bottom: 1rem;
+  color: #a9a9a9;
+  font-family: 'Roboto', Helvetica, sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+
+footer a {
+}
+
+header {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.audio-container-list {
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 0;
+  width: 60%;
+}
+
+.audio-container {
+  flex-basis: 45%;
+  font-size: 0;
+  list-style-type: none;
+  position: relative;
+  height: 120px;
+  margin-bottom: 2rem;
+}
+
+.audio-container a {
+  cursor: pointer;
+  height: 100%;
+  display: block;
+  outline: none;
+}
+
+.audio-container.playing a {
+  opacity: 0.35;
+}
+
+.audio-container a img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

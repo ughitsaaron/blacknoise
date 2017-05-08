@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.4.0",
+    "compression": "^1.6.2",
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^7.0.0",
+    "express": "^4.15.2",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "webpack": "2"
+  },
+  "scripts": {
+    "heroku-postbuild": "webpack",
+    "serve:watch": "nodemon app.js -e 'js' --exec 'babel-node'",
+    "start": "node dist/app.js",
+    "build": "webpack"
+  }
+}

@@ -1,0 +1,9 @@
+dist
+node_modules
+.tmp
+logfile
+npm-debug.log
+public/uploads
+public/assets/js/bundle.js
+coverage
+.DS_Store

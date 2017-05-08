@@ -1,0 +1,31 @@
+CACHE MANIFEST
+# version 1.0.0
+/assets/css/main.css
+/assets/js/bundle.js
+/assets/img/baby-crying.svg
+/assets/img/car-alarm.svg
+/assets/img/construction.svg
+/assets/img/dog-barking.svg
+/assets/img/fingernail-clipping.svg
+/assets/img/garbage-truck.svg
+/assets/img/high-pitch.svg
+/assets/img/plastic.svg
+/assets/img/subway.svg
+/assets/img/vomiting.svg
+/assets/img/skull.png
+/assets/audio/baby-crying.mp3
+/assets/audio/car-alarm.mp3
+/assets/audio/construction.mp3
+/assets/audio/dog-barking.mp3
+/assets/audio/fingernail-clipping.mp3
+/assets/audio/garbage-truck.mp3
+/assets/audio/high-pitch.mp3
+/assets/audio/plastic.mp3
+/assets/audio/subway.mp3
+/assets/audio/vomiting.mp3
+
+NETWORK:
+*
+
+FALLBACK:
+/ /fallback.html

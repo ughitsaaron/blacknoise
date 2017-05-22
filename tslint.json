@@ -1,0 +1,17 @@
+{
+    "defaultSeverity": "error",
+    "extends": [ "tslint:latest", "tslint-react" ],
+    "jsRules": {},
+    "rules": {
+      "quotemark": [true, "single", "jsx-double"],
+      "trailing-comma": false,
+      "member-access": false,
+      "only-arrow-functions": false,
+      "space-before-function-paren": [true, { "anonymous": "always", "named": "never" }],
+      "jsx-no-lambda": false,
+      "jsx-no-bind": false,
+      "interface-name": false,
+      "arrow-parens": false
+    },
+    "rulesDirectory": []
+}

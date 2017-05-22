@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-const audio = [
+const resources = [
   { source: 'baby-crying.mp3', label: 'A baby crying' },
   { source: 'construction.mp3', label: 'Construction Noises!' },
   { source: 'garbage-truck.mp3', label: 'A garbage truck' },
@@ -25,16 +25,21 @@ function Audio(props) {
 
   return (
      <li className={['audio-container', name, isPlaying].join(' ')}>
-      <audio ref={audioRef} loop src={`/assets/audio/${source.source}`} />
+      <audio ref={audioRef} loop={true} src={`/assets/audio/${source.source}`} />
       <a onClick={toggle} title={source.title}><img src={`/assets/img/${name}.svg`} /></a>
      </li>
   );
 }
 
+interface AudioContainerProps { source: string|object; }
+interface AudioContainerState { playing: boolean; }
+
 /**
  * stateful container wrap for Audio element
  */
-class AudioContainer extends PureComponent {
+class AudioContainer extends PureComponent<AudioContainerProps, AudioContainerState> {
+  node: React.ReactNode;
+
   constructor(props) {
     super(props);
 
@@ -44,11 +49,14 @@ class AudioContainer extends PureComponent {
   render() {
     const { playing } = this.state;
 
-    return <Audio
-      playing={playing}
-      toggle={onClick.bind(this)}
-      audioRef={node => this.node = node}
-      source={this.props.source} />;
+    return (
+      <Audio
+        playing={playing}
+        toggle={onClick.bind(this)}
+        audioRef={node => this.node = node}
+        source={this.props.source}
+      />
+    );
   }
 }
 
@@ -56,11 +64,12 @@ class AudioContainer extends PureComponent {
  * @returns {Component}
  */
 export default function Application() {
+  /* tslint:disable max-line-length */
   return (
     <div>
-      <header><img src='/assets/img/skull.png' /></header>
-      <ul className='audio-container-list'>
-        {audio.map((s, i) => <AudioContainer key={i} source={s} />)}
+      <header><img src="/assets/img/skull.png" /></header>
+      <ul className="audio-container-list">
+        {resources.map((s, i) => <AudioContainer key={i} source={s} />)}
       </ul>
       <footer>
         <p>this dum project by <a href="https://twitter.com/ughitsaaron">aaron petcoff</a></p>
@@ -72,13 +81,13 @@ export default function Application() {
       </footer>
     </div>
   );
+  /* tslint:enable */
 }
 
 /**
  * event handler for audio click
- * @returns {undefined}
  */
-function onClick() {
+function onClick(): void {
   const audio = this.node;
 
   audio.volume = 1.0; // ensure noises are loud as possible

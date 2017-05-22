@@ -1,9 +1,9 @@
-import Application from './client/application';
-import React from 'react';
 import compression from 'compression';
 import express from 'express';
 import { join } from 'path';
+import React from 'react';
 import { renderToString } from 'react-dom/server';
+import Application from './client/application';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -29,11 +29,10 @@ app.get('*', function (req, res) {
   res.send(handleRequest(renderToString(<Application />)));
 });
 
-
 app.listen(PORT, function () {
+  /* tslint:disable-next-line no-console */
   console.log('Listening on port', PORT);
 });
-
 
 /**
  * express middleware that enforces SSL
@@ -42,7 +41,7 @@ app.listen(PORT, function () {
  * @param {function} next
  * @return {undefined}
  */
-function enforceSSL(req, res, next) {
+function enforceSSL(req: express.Request, res: express.Response, next) {
   if (req.headers['x-forwarded-proto'] !== 'https') {
     return res.redirect('https://' + req.headers.host + req.url);
   }

@@ -5,25 +5,29 @@ var exports = [];
 
 const client = {
   name: 'client',
-  entry: join(__dirname, 'client/main.js'),
+  entry: join(__dirname, 'client/main.tsx'),
   devtool: 'eval',
   output: {
     pathinfo: true,
     filename: 'bundle.js',
     path: join(__dirname, 'public', 'assets', 'js')
   },
+  resolve: {
+    extensions: ['.tsx', '.js'],
+    modules: ['node_modules'],
+  },
   module: {
     rules: [{
-      test: /\.js$/,
+      test: /\.tsx$/,
       exclude: /(node_modules)/,
-      use: [ 'babel-loader' ]
+      use: ['babel-loader', 'ts-loader']
     }]
   }
 };
 
 const server = {
   name: 'server',
-  entry: join(__dirname, 'app.js'),
+  entry: join(__dirname, 'app.tsx'),
   target: 'node',
   node: {
     __dirname: true
@@ -34,11 +38,15 @@ const server = {
     libraryTarget: 'commonjs2',
     publicPath: join(__dirname, 'public')
   },
+  resolve: {
+    extensions: ['.tsx', '.js'],
+    modules: [__dirname, 'node_modules'],
+  },
   module: {
     rules: [{
-      test: /\.js$/,
+      test: /\.tsx$/,
       exclude: /(node_modules)/,
-      use: [ 'babel-loader' ]
+      use: [ 'babel-loader', 'ts-loader' ]
     }]
   }
 };

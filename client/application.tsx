@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import * as React from 'react';
 
 const resources = [
   { source: 'baby-crying.mp3', label: 'A baby crying' },
@@ -37,7 +37,7 @@ interface AudioContainerState { playing: boolean; }
 /**
  * stateful container wrap for Audio element
  */
-class AudioContainer extends PureComponent<AudioContainerProps, AudioContainerState> {
+class AudioContainer extends React.PureComponent<AudioContainerProps, AudioContainerState> {
   node: React.ReactNode;
 
   constructor(props) {

@@ -1,5 +1,0 @@
-{
-  "presets": [ "env" ],
-  "plugins": [ "transform-react-jsx" ],
-  "sourceMaps": "inline"
-}

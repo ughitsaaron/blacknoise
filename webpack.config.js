@@ -19,8 +19,8 @@ const client = {
   module: {
     rules: [{
       test: /\.tsx$/,
-      exclude: /(node_modules)/,
-      use: ['babel-loader', 'ts-loader']
+      exclude: /node_modules/,
+      use: ['awesome-typescript-loader']
     }]
   }
 };
@@ -45,8 +45,8 @@ const server = {
   module: {
     rules: [{
       test: /\.tsx$/,
-      exclude: /(node_modules)/,
-      use: [ 'babel-loader', 'ts-loader' ]
+      exclude: /node_modules/,
+      use: ['awesome-typescript-loader']
     }]
   }
 };
@@ -62,10 +62,9 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.optimize.UglifyJsPlugin({ sourceMap: false })
   ];
-
-  exports.push(server);
 }
 
+exports.push(server);
 exports.push(client);
 
 module.exports = exports;

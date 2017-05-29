@@ -1,7 +1,7 @@
-import compression from 'compression';
-import express from 'express';
+import * as compression from 'compression';
+import * as express from 'express';
 import { join } from 'path';
-import React from 'react';
+import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 import Application from './client/application';
 
